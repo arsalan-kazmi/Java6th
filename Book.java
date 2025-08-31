@@ -1,36 +1,33 @@
+import java.util.*;
+
 class Book {
-    String title;
-    String author;
-    double price;
+  String title, author, pub;
+  double price;
 
-    Book() {
-        title = "Unknown";
-        author = "Unknown";
-        price = 0.0;
-    }
+  void input() {
+    Scanner sc = new Scanner(System.in);
+    title = sc.next();
+    author = sc.next();
+    pub = sc.next();
+    price = sc.nextDouble();
+  }
 
-    Book(String title, String author) {
-        this.title = title;
-        this.author = author;
-        this.price = 0.0;
-    }
+  void display() {
+    System.out.println(title + " " + author + " " + pub + " " + price);
+  }
 
-    Book(String title, String author, double price) {
-        this.title = title;
-        this.author = author;
-        this.price = price;
-    }
+  static void search(Book[] b, String t) {
+    for (Book x : b)
+      if (x.title.equals(t))
+        x.display();
+  }
 
-    void display() {
-        System.out.println("Title: " + title + ", Author: " + author + ", Price: " + price);
-    }
-
-    public static void main(String[] args) {
-        Book b1 = new Book();
-        Book b2 = new Book("Java Programming", "James Gosling");
-        Book b3 = new Book("Python Basics", "Guido van Rossum", 450.50);
-        b1.display();
-        b2.display();
-        b3.display();
-    }
+  public static void main(String[] a) {
+    Book b1 = new Book();
+    b1.title = "ABC";
+    b1.author = "X";
+    b1.pub = "P";
+    b1.price = 200;
+    b1.display();
+  }
 }

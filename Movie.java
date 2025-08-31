@@ -1,46 +1,34 @@
-import java.util.Scanner;
+import java.util.*;
 
 class Movie {
-    String name;
-    String director;
-    int releaseYear;
-    double rating;
+  String name, dir;
+  int yr;
+  double rate;
 
-    void inputDetails() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter Movie Name: ");
-        name = sc.nextLine();
-        System.out.print("Enter Director: ");
-        director = sc.nextLine();
-        System.out.print("Enter Release Year: ");
-        releaseYear = sc.nextInt();
-        System.out.print("Enter Rating: ");
-        rating = sc.nextDouble();
-    }
+  void input() {
+    Scanner sc = new Scanner(System.in);
+    name = sc.next();
+    dir = sc.next();
+    yr = sc.nextInt();
+    rate = sc.nextDouble();
+  }
 
-    void display() {
-        System.out.println("Movie: " + name + ", Director: " + director + ", Year: " + releaseYear + ", Rating: " + rating);
-    }
+  void display() {
+    System.out.println(name + " " + dir + " " + yr + " " + rate);
+  }
 
-    static void showAboveThreshold(Movie[] movies, double threshold) {
-        for (Movie m : movies) {
-            if (m.rating > threshold) m.display();
-        }
-    }
+  static void show(Movie[] m, double th) {
+    for (Movie x : m)
+      if (x.rate > th)
+        x.display();
+  }
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter number of movies: ");
-        int n = sc.nextInt();
-        sc.nextLine();
-        Movie[] movies = new Movie[n];
-        for (int i = 0; i < n; i++) {
-            movies[i] = new Movie();
-            movies[i].inputDetails();
-        }
-        for (Movie m : movies) m.display();
-        System.out.print("Enter rating threshold: ");
-        double t = sc.nextDouble();
-        showAboveThreshold(movies, t);
-    }
+  public static void main(String[] a) {
+    Movie m1 = new Movie();
+    m1.name = "M1";
+    m1.dir = "D1";
+    m1.yr = 2020;
+    m1.rate = 4.5;
+    m1.display();
+  }
 }

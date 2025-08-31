@@ -1,35 +1,32 @@
-import java.util.Scanner;
+import java.util.*;
 
 class Item {
-    int code;
-    String name;
-    int quantity;
-    double pricePerUnit;
+  int code, qty;
+  String name;
+  double price;
 
-    void inputDetails() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter Item Code: ");
-        code = sc.nextInt();
-        sc.nextLine();
-        System.out.print("Enter Item Name: ");
-        name = sc.nextLine();
-        System.out.print("Enter Quantity: ");
-        quantity = sc.nextInt();
-        System.out.print("Enter Price per Unit: ");
-        pricePerUnit = sc.nextDouble();
-    }
+  void input() {
+    Scanner sc = new Scanner(System.in);
+    code = sc.nextInt();
+    name = sc.next();
+    qty = sc.nextInt();
+    price = sc.nextDouble();
+  }
 
-    double totalPrice() {
-        return quantity * pricePerUnit;
-    }
+  double total() {
+    return qty * price;
+  }
 
-    void displayBill() {
-        System.out.println("Item Code: " + code + ", Name: " + name + ", Quantity: " + quantity + ", Unit Price: " + pricePerUnit + ", Total: " + totalPrice());
-    }
+  void bill() {
+    System.out.println(code + " " + name + " " + qty + " " + price + " " + total());
+  }
 
-    public static void main(String[] args) {
-        Item i = new Item();
-        i.inputDetails();
-        i.displayBill();
-    }
+  public static void main(String[] a) {
+    Item i = new Item();
+    i.code = 1;
+    i.name = "Pen";
+    i.qty = 10;
+    i.price = 5;
+    i.bill();
+  }
 }

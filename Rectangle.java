@@ -1,36 +1,18 @@
 class Rectangle {
-    private double length;
-    private double breadth;
+  double l, w;
 
-    void setLength(double length) {
-        this.length = length;
-    }
+  double area() {
+    return l * w;
+  }
 
-    void setBreadth(double breadth) {
-        this.breadth = breadth;
-    }
+  double peri() {
+    return 2 * (l + w);
+  }
 
-    double getLength() {
-        return length;
-    }
-
-    double getBreadth() {
-        return breadth;
-    }
-
-    double area() {
-        return length * breadth;
-    }
-
-    double perimeter() {
-        return 2 * (length + breadth);
-    }
-
-    public static void main(String[] args) {
-        Rectangle r = new Rectangle();
-        r.setLength(5);
-        r.setBreadth(3);
-        System.out.println("Area: " + r.area());
-        System.out.println("Perimeter: " + r.perimeter());
-    }
+  public static void main(String[] a) {
+    Rectangle r = new Rectangle();
+    r.l = 5;
+    r.w = 3;
+    System.out.println(r.area() + " " + r.peri());
+  }
 }
