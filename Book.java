@@ -1,33 +1,32 @@
-import java.util.*;
-
 class Book {
-  String title, author, pub;
+  String title, author;
   double price;
 
-  void input() {
-    Scanner sc = new Scanner(System.in);
-    title = sc.next();
-    author = sc.next();
-    pub = sc.next();
-    price = sc.nextDouble();
+  Book() {
+    title = "Default";
+    author = "Unknown";
+    price = 0;
+  }
+
+  Book(String t, String a) {
+    title = t;
+    author = a;
+    price = 0;
+  }
+
+  Book(String t, String a, double p) {
+    title = t;
+    author = a;
+    price = p;
   }
 
   void display() {
-    System.out.println(title + " " + author + " " + pub + " " + price);
+    System.out.println(title + " " + author + " " + price);
   }
 
-  static void search(Book[] b, String t) {
-    for (Book x : b)
-      if (x.title.equals(t))
-        x.display();
-  }
-
-  public static void main(String[] a) {
-    Book b1 = new Book();
-    b1.title = "ABC";
-    b1.author = "X";
-    b1.pub = "P";
-    b1.price = 200;
-    b1.display();
+  public static void main(String[] args) {
+    new Book().display();
+    new Book("Book1", "Author1").display();
+    new Book("Book2", "Author2", 250).display();
   }
 }
